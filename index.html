@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Web App</title>
+</head>
+<body>
+    
+<div class="auth-container">
+   
+    <div class="tab-btn">
+        <button class="login-tab active">Login</button>
+        <button class="register-tab">Sign Up</button>
+
+    </div>
+
+        <div class="login-box">
+
+            <h2>Welcome Back !</h2>
+            <form class="login-form" action="#" method="post">
+                <input type="email" name="userEmail" placeholder="Enter your Email" required autofocus/> <br/>
+                <input type="password" name="password" placeholder="Password" required/> <br />
+
+                <button type="button">Forgot Passowrd?</button><br/>
+                <button type="submit">Login</button>
+            </form>
+
+            
+        </div>
+
+        <div class="register-box">
+
+            <h2>Register now !</h2>
+
+            <form action="#" method="post" id="register-form">
+
+                <input type="text" name="FullName" placeholder="Enter your Name" required autofocus/><br />
+                <input type="email" name="email" placeholder="Enter your Email" required/><br />
+                <input type="password" name="pass" placeholder=" Enter a password" required/>
+                <input type="password" name="repass" placeholder="Confirm Password" class="inp" required /><br />
+                <button  type="submit">Register</button>
+    
+
+            </form>
+
+
+    </div>
+ 
+</div>
+
+<script src="Scripts/auth.js"></script>
+</body>
+</html>
