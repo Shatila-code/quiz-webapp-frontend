@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Web App</title>
+    <link rel="stylesheet" href="Styles/style.css"/>
 </head>
-<body>
+<body class="wrapper">
     
 <div class="auth-container">
    
@@ -14,16 +15,16 @@
 
     </div>
 
-        <div class="login-box">
+        <div class="login-box active">
             <img src="images/quiz-logo.png" alt="Quiz Logo" class="logo" />
 
-            <h2>Welcome Back !</h2>
+            <h2 class="auth-heading">Welcome Back !</h2>
             <form class="login-form" action="#" method="post">
-                <input type="email" name="userEmail" placeholder="Enter your Email" required autofocus/> <br/>
-                <input type="password" name="password" placeholder="Password" required/> <br />
+                <input type="email" name="userEmail" placeholder="Enter your Email" class="auth-input"required autofocus/> <br/>
+                <input type="password" name="password" placeholder="Password" class="auth-input" required/> <br />
 
-                <button type="button">Forgot Passowrd?</button><br/>
-                <button type="submit">Login</button>
+                <button type="button" class="auth-forgot-btn">Forgot Passowrd?</button><br/>
+                <button class="auth-submit" type="submit">Login</button>
             </form>
 
             
@@ -32,15 +33,15 @@
         <div class="register-box">
             <img src="images/quiz-logo.png" alt="Quiz Logo" class="logo" />
 
-            <h2>Register now !</h2>
+            <h2 class="auth-heading">Register now !</h2>
 
             <form action="#" method="post" id="register-form">
 
-                <input type="text" name="FullName" placeholder="Enter your Name" required autofocus/><br />
-                <input type="email" name="email" placeholder="Enter your Email" required/><br />
-                <input type="password" name="pass" placeholder=" Enter a password" required/>
-                <input type="password" name="repass" placeholder="Confirm Password" class="inp" required /><br />
-                <button  type="submit">Register</button>
+                <input type="text" name="FullName" placeholder="Enter your Name" class="auth-input" required autofocus/><br />
+                <input type="email" name="email" placeholder="Enter your Email"class="auth-input" required/><br />
+                <input type="password" name="pass" placeholder=" Enter a password" class="auth-input" required/>
+                <input type="password" name="repass" placeholder="Confirm Password" class="auth-input"  required /><br />
+                <button  class="auth-submit" type="submit">Register</button>
     
 
             </form>
