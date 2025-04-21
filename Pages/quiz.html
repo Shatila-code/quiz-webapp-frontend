@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="../Styles/quizStyle.css">
+</head>
+<body>
+  <div id="quiz-page" class="page quiz-container active">
+    <h1 class="quiz-header">Quiz</h1>
+    <button id="back-to-home" class="back-btn">Back to Home</button>
+
+    <!-- Quiz Content -->
+    <div id="quiz-content">
+      <p id="question-text" class="quiz-question"></p>
+      <div id="options-container" class="quiz-options"></div>
+      <button id="next-btn" class="submit-btn">Next</button>
+    </div>
+
+    <!-- Result Section -->
+    <p id="quiz-result" class="quiz-result hidden"></p>
+  </div>
+  <script src="../Scripts/quiz.js"></script>
+</body>
+</html>
