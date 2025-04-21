@@ -45,4 +45,50 @@ const initializeQuizzes = () => {
         ],
       },
     ];
-  
+  }
+
+  localStorage.setItem('quizzes', JSON.stringify(quizzes));
+};
+
+  const displayQuizzes = () => {
+  const quizzes = JSON.parse(localStorage.getItem('quizzes')) || [];
+  const quizList = document.getElementById('quiz-list');
+
+  if (!quizList) {
+    console.error('Error: The "quiz-list" element is missing in the HTML.');
+    return;
+  }
+
+  quizList.innerHTML = quizzes.length
+    ? quizzes.map(quiz => `<li role="button" tabindex="0">${quiz.quizName || 'Untitled Quiz'}</li>`).join('')
+    : '<p>No quizzes available.</p>';
+
+  document.querySelectorAll('#quiz-list li').forEach((li, index) => {
+    li.addEventListener('click', () => startQuiz(quizzes[index].id));
+    li.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') startQuiz(quizzes[index].id);
+    });
+  });
+};
+
+const startQuiz = (quizId) => {
+  localStorage.setItem('currentQuizId', quizId);
+  window.location.href = 'quiz.html';
+};
+
+const handleLogout = () => {
+  const logoutBtn = document.getElementById('logout-btn');
+  if (!logoutBtn) {
+     return;
+  }
+
+  logoutBtn.addEventListener('click', () => {
+    sessionStorage.clear(); 
+    window.location.href = '../index.html';
+  });
+};
+document.addEventListener('DOMContentLoaded', () => {
+  initializeQuizzes();
+  displayQuizzes();
+  handleLogout();
+});
