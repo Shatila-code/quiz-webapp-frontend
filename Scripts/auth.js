@@ -74,7 +74,7 @@
             name: name,
             email: email,
             password: password,
-            scores: [],
+            scores: {},
         };
         users.push(newUser);
     
@@ -117,14 +117,21 @@
         
     }
     
-    if(email ==="admin@quiz.com" && password === "admin123"){
-    
-        window.location.href="dashboard.html";
+    if (email === "admin@quiz.com" && password === "admin123") {
+        const adminUser = {
+            name: "Admin",
+            email: "admin@quiz.com",
+            password: "admin123",
+            isAdmin: true, // Add a flag to indicate admin role
+            scores: [],
+        };
+        sessionStorage.setItem("loggedInUser", JSON.stringify(adminUser));
+        window.location.href = "/Pages/dashboard.html"; // Redirect to admin dashboard
         return;
     }
     sessionStorage.setItem("loggedInUser",JSON.stringify(foundUser));
     
-    window.location.href = "homePage.html";
+    window.location.href = "Pages/home.html";
     
     });
  });    
