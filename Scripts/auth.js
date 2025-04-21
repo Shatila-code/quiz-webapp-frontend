@@ -2,7 +2,7 @@
 
  // waiting for the page to fully load before executing javascript code
 
- document.addEventListener("DOMContentLoaded", function ()){
+ document.addEventListener("DOMContentLoaded", function (){
 
     var loginTab = document.querySelector(".login-tab");
 
@@ -16,28 +16,7 @@
     var registerForm = document.getElementById("register-form");
 
  }
-  
- // added an event listener to switch between the two tabs 
- 
-loginTab.addEventListener("click", function()
-
-{
-
-    loginTab.classList.add("active");
-    registerTab.classList.remove("active");
-    loginBox.classList.add("active");
-    registerBox.classList.remove("active");
-});
-
-registerTab.addEventListener("click", function()
-
-{
-
-    registerTab.classList.add("active");
-    loginTab.classList.remove("active");
-    registerBox.classList.add("active");
-    loginBox.classList.remove("active");
-});
+ );
 
 registerForm.addEventListener("submit", function (event)
 {
@@ -60,4 +39,80 @@ registerForm.addEventListener("submit", function (event)
         alert("passwords don't match.");
         return;
     }
-})
+
+    var users = [] ; 
+    var storedUsers = localStorage.getItem("users");
+    if(storedUsers){
+        users = JSON.parse(storedUsers); 
+    }
+
+    for (var i = 0 ; i<users.length ; i++){
+        
+        if (users[i].email == email)
+        {
+            alert("User with this email already exists.");
+
+            return ; 
+        }
+     
+    }
+
+
+    var newUser = {
+
+        name: name,
+        email: email,
+        password: password,
+        scores: [],
+    };
+    users.push(newUser);
+
+    localStorage.setItem("users",JSON.stringify(users));
+
+    alert("Registeration successful! Please login in.");
+    registerForm.reset();
+    loginTab.click();
+});
+
+loginForm.addEventListener("submit", function (event){
+
+event.preventDefault();
+
+var email = loginForm.userEmail.value.trim();
+var password = loginForm.password.value.trim();
+
+if (!email ||!password){
+    alert("Please enter both email and password");
+    return;
+}
+var users = [];
+var storedUsers = localStorage.getItem("users");
+
+if (storedUsers){
+    users = JSON.parse(storedUsers);
+}
+
+var foundUser = null;
+for(var i = 0; i<users.length; i++){
+    if(users[i].email == email && users[i].password === password)
+    {
+        foundUser = users[i];
+        break;
+    }
+}
+if(!foundUser){
+    alert("Invalid email or password");
+        return;
+    
+}
+
+if(email ==="admin@quiz.com" && password === "admin123"){
+
+    window.location.href="dashboard.html";
+    return;
+}
+sessionStorage.setItem("loggedInUser",JSON.stringify(foundUser));
+
+window.location.href = "homePage.html";
+
+});
