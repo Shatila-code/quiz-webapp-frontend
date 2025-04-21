@@ -50,3 +50,51 @@
     color: #333;
     font-size: 25.6px;
 }
+.auth-input {
+    width: 100%;
+    padding: 17.6px;
+    margin-bottom: 19.2px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 18.4px;
+    transition: border-color 0.3s;
+}
+
+.auth-input::placeholder {
+    font-size: 22px;
+    color: #999;
+}
+
+.auth-input:focus {
+    outline: 2px solid #28a745;
+    border-color: transparent;
+}
+
+.auth-submit {
+    width: 100%;
+    padding: 17.6px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 19px;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.2s;
+}
+
+.auth-submit:hover {
+    background: #218838;
+}
+
+.auth-forgot-btn {
+    display: block;
+    text-align: right;
+    color: #28a745;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 13px 0 24px;
+    font-size: 16px;
+}
